@@ -1,0 +1,41 @@
+@using WeddingPlanner.Models
+@model Wedding
+
+<table class="table"><!-- NEW WEDDING TABLE -->
+    <form asp-action="Create" asp-controller="Wedding" method="POST"><!-- NEW WEDDING FORM -->
+        <tr><!-- GROOM -->
+            <td>
+                <span asp-validation-for="Groom"></span>
+                <label asp-for="Groom"></label>
+                <input asp-for="Groom">
+            </td>
+        </tr><!-- GROOM -->
+        <tr><!-- BRIDE -->
+            <td>
+                <span asp-validation-for="Bride"></span>
+                <label asp-for="Bride"></label>
+                <input asp-for="Bride">
+            </td>
+        </tr><!-- BRIDE -->            
+        <tr><!-- DATE -->
+            <td>
+                <span asp-validation-for="Date"></span>
+                <label asp-for="Date"></label>
+                <input asp-for="Date">
+            </td>
+        </tr><!-- DATE -->
+        <tr><!-- LOCATION -->
+            <td>
+                <span asp-validation-for="Location"></span>
+                <label asp-for="Location"></label>
+                <input asp-for="Location">
+            </td>
+        </tr><!-- LOCATION -->
+        <tr><!-- submit -->
+            <td>
+                <input type="hidden" asp-for="UserId" value="@ViewBag.plannerId">
+                <input type="submit" name="Create" value="Create">
+            </td>
+        </tr><!-- submit -->
+    </form>
+</table>
