@@ -1,0 +1,14 @@
+@using WeddingPlanner.Models
+@model Wedding
+
+<h1>@Model.Groom & @Model.Bride</h1>
+<h4>@Model.Date</h4>
+<ul style="list-style: none">
+    <th>Guest List:</th>
+    @foreach(Guest guest in @Model.Guests)
+    {
+        <li>            
+            @guest.Attendee.Fname  @guest.Attendee.Lname
+        </li>
+    }
+</ul>

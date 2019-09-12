@@ -1,0 +1,59 @@
+@using WeddingPlanner.Models
+@model List<Wedding>
+
+    <h1>Hello DashBoard</h1>
+
+<table class="table">
+    <tr>
+        <th>
+            Wedding
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Guests
+        </th>
+        <th>
+            Planner
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach(Wedding wedding in @Model)
+    {
+        <tr>
+            <td><!-- Bride and Groom -->
+                <a asp-action="View" asp-controller="Wedding" asp-route-id="@wedding.WeddingId">
+                    @wedding.Groom & @wedding.Bride
+                </a>
+            </td><!-- Bride and Groom -->
+            <td><!-- Date of Wedding -->
+                @wedding.Date
+            </td><!-- Date of Wedding -->
+            <td><!-- Guests -->
+                @wedding.Guests.Count
+            </td><!-- Guests -->
+            <td>
+                @wedding.Planner.Fname
+            </td>
+            <td><!-- Actions -->
+                @if(@wedding.Planner == @ViewBag.liveUser )
+                {
+                    <a asp-action="Delete" asp-controller="Wedding" asp-route-id="@wedding.WeddingId">Delete</a>
+                }else{
+
+                    @if(@wedding.Guests.Any(live => live.UserId == @ViewBag.liveUser.UserId))
+                    {
+                        <a asp-action="Leave" asp-controller="Wedding" asp-route-id="@wedding.WeddingId">Leave Guest List</a>
+                    }else{
+                        <a asp-action="Join" asp-controller="Wedding" asp-route-id="@wedding.WeddingId">Join Guest List</a>
+                    }
+                }
+            </td><!-- Actions -->
+        </tr>
+    }
+
+</table>

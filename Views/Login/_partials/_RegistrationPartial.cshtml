@@ -1,0 +1,52 @@
+@using WeddingPlanner.Models
+@model User
+
+<div class="container"><!-- CONTAINER -->
+    <table class="table"><!--REGISTRATION FORM TABLE -->
+        <h3 class="display-4">Register</h3>
+        <form asp-action="Create" asp-controller="Login" method="post"><!--REGISTRATION FORM -->                    
+            <tr><!-- Fname -->
+                <td>
+                    <span asp-validation-for="Fname"></span>
+                    <label asp-for="Fname"></label>
+                    <br>
+                    <input asp-for="Fname">
+                </td>
+            </tr><!-- Fname -->
+            <tr><!-- Lname -->
+                <td>
+                    <span asp-validation-for="Lname"></span>
+                    <label asp-for="Lname"></label>
+                    <br>
+                    <input asp-for="Lname">
+                </td>
+            </tr><!-- Lname -->
+            <tr><!-- Email -->
+                <td>
+                    <span asp-validation-for="Email"></span>
+                    <label asp-for="Email"></label>
+                    <br>
+                    <input asp-for="Email">
+                </td>
+            </tr><!-- Email -->
+            <tr><!-- Password -->
+                <td>
+                    <span asp-validation-for="Password"></span>
+                    <label asp-for="Password"></label>
+                    <br>
+                    <input asp-for="Password">
+                    <br>
+                    <label asp-for="ConfirmPassword"></label>
+                    <br>
+                    <input name="ConfirmPassword" type="text">
+                </td>
+            </tr>
+            <tr><!-- submit -->
+                <td>
+                    <input type="submit" name="Create" value="Register">
+                </td>
+            </tr><!-- submit -->
+        </form><!--REGISTRATION FORM -->            
+    </table><!-- REGISTRATION FORM TABLE -->
+    <!-- <a asp-controller="Login" asp-action="LoginTemplate">Go to Login</a> -->
+</div><!-- CONTAINER -->

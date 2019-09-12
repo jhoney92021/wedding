@@ -1,0 +1,32 @@
+@using WeddingPlanner.Models
+@model LoginUser
+
+<div class="container"><!-- CONTAINER -->
+    <table class="table"><!--LOGIN FORM TABLE -->
+        <form asp-action="Login" asp-controller="Login" method="post"><!--LOGIN FORM -->                    
+            <h3 class="display-4">Login</h3>
+            <tr><!-- Email -->
+                <td>
+                    <span asp-validation-for="Email"></span>
+                    <label asp-for="Email"></label>
+                    <br>
+                    <input asp-for="Email">
+                </td>
+            </tr><!-- Email -->
+            <tr><!-- Password -->
+                <td>
+                    <span asp-validation-for="Password"></span>
+                    <label asp-for="Password"></label>
+                    <br>
+                    <input asp-for="Password">
+                </td>
+            </tr><!-- Password -->
+            <tr><!-- submit -->
+                <td>
+                    <input type="submit" name="Login" value="Login">
+                </td>
+            </tr><!-- submit -->
+    </form><!--LOGIN FORM -->            
+</table><!-- LOGIN FORM TABLE -->
+<!-- <a asp-controller="Bank" asp-action="Index">Go to Register</a> -->
+</div><!-- CONTAINER -->
